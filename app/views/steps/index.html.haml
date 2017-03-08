@@ -1,0 +1,26 @@
+.container
+  .row
+    .text-center
+      %button.btn.btn-primary.btn-lg{"data-target" => "#mynewstep", "data-toggle" => "modal", :type => "button"}
+        New step
+  #container_steps.row
+    = render 'steps'
+
+  = form_for(@step, remote: true) do |f|
+    #mynewstep.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"}
+            %h4#myModalLabel.modal-title step
+          .modal-body
+            .field
+              = f.label :description
+
+              = f.text_area :description, class: "form-control step_title"
+          .modal-footer
+            %button#mynewstepclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+            = submit_tag "Create", class: "btn btn-primary"
+
+= paginate @steps

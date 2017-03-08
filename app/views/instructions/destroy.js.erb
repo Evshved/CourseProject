@@ -1,0 +1,4 @@
+$("#instruction_<%= @instruction.id %>").fadeOut(600, function(){
+  $(this).remove();
+});
+$(".tags-cloud.glassy-bg").html("<%= j render(:partial => 'tags') %>");

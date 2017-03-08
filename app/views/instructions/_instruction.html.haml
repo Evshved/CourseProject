@@ -1,0 +1,37 @@
+.col-md-4.blog-main.box.text-center{:id => "instruction_#{instruction.id}"}
+  .panel.panel-info
+    .panel-heading
+      %h3.panel-title= instruction.title
+      %p= link_to 'Youtube link', instruction.youtube_link
+      Tags
+      %h4= raw tag_links(instruction.all_tags)
+    .btn-group{"aria-label" => "...", :role => "group"}
+      %button.btn.btn-warning{:"data-toggle" => "modal", :type => "button",
+      :"data-target" => "#myupdateinstruction_#{instruction.id}"}
+        Edit
+    = link_to 'Destroy', instruction, method: :delete, class: "btn btn-danger", remote: true
+    = link_to 'Show', instruction, class: "btn btn-default"
+  = form_for(instruction, :method => :put, remote: true) do |f|
+    .modal.fade{"aria-labelledby" => "myModalLabel", :id => "myupdateinstruction_#{instruction.id}", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :tupe => "button"}
+              %span{"aria-hidden" => "true"} ×
+            %h4#myModalLabel.modal-title Edit
+          .modal-body
+            .field
+              = f.label :title
+              %br
+              = f.text_area :title, class: "form-control"
+            .field
+              = f.label :youtube_link
+              %br
+              = f.text_area :youtube_link, class: "form-control"
+            .field
+              = f.label :all_tags
+              %br
+              = f.text_area :all_tags, class: "form-control"
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :id => "myupdatebutton_#{instruction.id}", :type => "button"} Close
+            = submit_tag "Update", class: "btn btn-primary"

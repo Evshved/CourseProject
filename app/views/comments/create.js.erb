@@ -1,0 +1,13 @@
+$('#comment_content_<%= @step.id %>').val('')
+$('#comment_content_<%= @step.id %>').blur();
+Append.comment_count += 1
+$(Append.id).attr('data-value', Append.comment_count);
+
+if (Append.comment || Append.open ){ $('#comments_<%= @step.id %>').append("<%=j render 'comments/comment', step: @step, comment: @comment %>"); }
+
+else if ((Append.comment && Append.open) === false && Append.link === true) {
+  $('#comments_' + Append.step_id).append("<div class='paginator' id='#comments-paginator-" + Append.step_id + "'><a class='more-comments' id='more_comments_" + Append.step_id + "' data-step-id='" + Append.step_id + "' data-type='html' data-remote='true' data-value='" + Append.comment_count + "' href='/steps/" + Append.step_id + "/comments'>view all " + Append.comment_count + " comments</a></div>");
+}
+
+else if ((Append.comment && Append.open && Append.link) === false) { $('#more_comments_<%= @step.id %>').html("view all <%= @step.comments.count %> comments"); }
+$('#comments_<%= @step.id %>').html("<%= j render @step.comments, step: @step, comment: @comment %>");

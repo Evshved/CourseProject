@@ -1,0 +1,4 @@
+$("#mynewstep").modal("hide");
+$(".step_description").val('');
+$("#container_steps").prepend("<%= j render @step%>");
+$("#step_<%= @step.id %>").hide().fadeIn(1000);

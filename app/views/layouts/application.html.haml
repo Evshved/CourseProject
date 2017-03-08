@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title CourseProject
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{href: '#'} Instructions
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                .container-nickname
+                  = current_user.name
+              %li= link_to 'Log Out', users_sign_out_path, method: :delete
+            - else
+              %li= link_to 'Twitter', user_twitter_omniauth_authorize_path
+              %li= link_to 'Facebook', user_facebook_omniauth_authorize_path
+              %li= link_to 'VK', user_vkontakte_omniauth_authorize_path
+  .container
+    - flash.each do |key, value|
+      %div{:class => "alert alert-#{key}"}
+        = value
+    = yield

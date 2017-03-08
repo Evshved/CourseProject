@@ -1,0 +1,7 @@
+$("#mynewinstruction").modal("hide");
+$(".instruction_title").val('');
+$(".instruction_instruction_body").val('');
+$(".instruction_all_tags").val('');
+$("#container_instructions").prepend("<%= j render @instruction%>")
+$("#instruction_<%= @instruction.id %>").hide().fadeIn(1000);
+$(".tags-cloud.glassy-bg").html("<%= j render(:partial => 'tags') %>");

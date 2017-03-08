@@ -1,0 +1,31 @@
+.container
+  .row
+    .text-center
+      %button.btn.btn-primary.btn-lg{"data-target" => "#mynewinstruction", "data-toggle" => "modal", :type => "button"}
+        New Instruction
+  #container_instructions.row
+    = render @instructions
+
+  = form_for(@instruction, remote: true) do |f|
+    #mynewinstruction.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"}
+            %h4#myModalLabel.modal-title Instruction
+          .modal-body
+            .field
+              = f.label :title
+              = f.text_area :title, class: "form-control instruction_title"
+              = f.label :youtube_link
+              = f.text_area :youtube_link, class: "form-control instruction_body"
+              =f.label :all_tags
+              =f.text_area :all_tags, class: "form-control instruction_all_tags"
+          .modal-footer
+            %button#mynewinstructionclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+            = submit_tag "Create", class: "btn btn-primary"
+.tags-cloud.glassy-bg
+  = render partial: "tags"
+.paginating
+  = paginate @instructions

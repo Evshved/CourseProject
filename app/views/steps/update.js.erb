@@ -1,0 +1,5 @@
+$("#myupdatestep_<%= @step.id %>").modal('hide');
+$("#step_<%= @step.id %>").fadeOut(400, function(){
+  $(this).remove();
+  $("#container_steps").prepend("<%= j render @step %>");
+});

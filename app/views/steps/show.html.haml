@@ -1,0 +1,17 @@
+= render 'step', step: @step
+.container.col-sm-11
+  .comments{id: "comments_#{@step.id}"}
+    -if @step.comments.any?
+      = render @step.comments.first(4), step: @step
+      -unless @step.comments.count <= 4
+        .paginator{id: "#comments-paginator-#{@step.id}"}
+          =link_to "view all #{@step.comments.count} comments", step_comments_path(@step), remote: true, class: 'more-comments', id: "more_comments_#{@step.id}", data: {step_id: "#{@step.id}", type: "html", value: "#{@step.comments.count}"}
+.comment-form.col-sm-11
+  =form_for([@step, @step.comments.build], remote: true) do |f|
+    =f.text_field :content, placeholder: 'Add a comment...',
+                             class: "comment_content",
+                             id: "comment_content_#{@step.id}",
+                             data: { step_id: "#{@step.id}",
+                             value: "#{@step.comments.count}" }
+    =f.submit 'New Comment', class: 'comment-submit-button'
+
