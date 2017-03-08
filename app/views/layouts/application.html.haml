@@ -8,18 +8,14 @@
     %title CourseProject
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %nav.navbar.navbar-default
       .container-fluid
         .navbar-header
-          %a.navbar-brand{href: '#'} Instructions
+          %a.navbar-brand{href: '#'} Course Project
           %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
@@ -28,9 +24,23 @@
                   = current_user.name
               %li= link_to 'Log Out', users_sign_out_path, method: :delete
             - else
-              %li= link_to 'Twitter', user_twitter_omniauth_authorize_path
-              %li= link_to 'Facebook', user_facebook_omniauth_authorize_path
-              %li= link_to 'VK', user_vkontakte_omniauth_authorize_path
+              .dropdown
+                %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  Social login
+                  %span.caret
+                %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+                  %li
+                    = link_to user_twitter_omniauth_authorize_path do
+                      .fa.fa-twitter
+                      Twitter
+                  %li
+                    = link_to user_facebook_omniauth_authorize_path do
+                      .fa.fa-facebook
+                      Facebook
+                  %li
+                    = link_to user_vkontakte_omniauth_authorize_path do
+                      .fa.fa-vk
+                      VK
   .container
     - flash.each do |key, value|
       %div{:class => "alert alert-#{key}"}
