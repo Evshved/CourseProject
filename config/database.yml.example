@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 20
+  host: localhost
+  username: root
+  password: your_password
+
+development:
+  <<: *default
+  database: CourseProject_development
+
+
+test:
+  <<: *default
+  database: CourseProject_test
+
+production:
+  <<: *default
+  database: CourseProject_production
+  username: CourseProject
+  password: <%= ENV['COURSEPROJECT_DATABASE_PASSWORD'] %>
