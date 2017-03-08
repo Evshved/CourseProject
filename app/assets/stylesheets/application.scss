@@ -1,0 +1,79 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "../tags";
+
+body {
+  background-color: #fafafa;
+  font-family: 'proxima-nova', 'Helvetica Neue', 'Arial', 'Helvetica', sans-serif;
+  color: #333;
+  background-color: #f5f8fa;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.container {
+    width: 1200px;
+}
+.navbar-brand {
+  a {
+    color: #fff;
+  }
+}
+
+.navbar-container {
+  background-color: #125688;
+  width: 640px;
+  margin: 0 auto;
+}
+
+.myfont {
+  font-size: 24px;
+}
+
+.container-nickname {
+  display: block;
+  position: relative;
+  padding: 15px;
+}
+
+.comment-submit-button {
+  position: absolute;
+  left: -9999px;
+}
+
+.comment_content {
+  font-size: 15px;
+  line-height: 18px;
+  border: medium none;
+  width: 100%;
+  color: #4B4F54;
+}
+
+
+#load_more {
+  display: table-cell;
+  font-size: 12px;
+  padding: 0px 9px;
+  vertical-align: middle;
+  text-decoration: none;
+  a :hover {
+    color: #2D6DA8;
+  }
+}
+
+#comment {
+  margin: 0.5em;
+  .more-comments {
+    color: #A5A7AA;
+  }
+  display: block;
+}
+
+.comment-submit-button {
+  position: absolute;
+  left: -9999px;
+}
+
+
+
