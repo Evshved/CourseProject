@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.3.1'
+
 gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
@@ -28,6 +30,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit'
+
+gem 'carrierwave'
+gem 'cloudinary'
 
 gem 'omniauth'
 gem 'omniauth-facebook'

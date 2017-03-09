@@ -14,6 +14,7 @@
 !/tmp/.keep
 /config/secrets.yml
 /config/database.yml
+/config/cloudinary.yml
 
 # Ignore Byebug command history file.
 .byebug_history
