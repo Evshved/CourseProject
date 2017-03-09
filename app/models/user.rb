@@ -48,7 +48,7 @@ class User < ApplicationRecord
 
   def self.fill_info(auth)
     user          = User.new
-    user.password = Devise.friendly_token[0,10]
+    user.password = Devise.friendly_token[0, 10]
     user.name     = auth.info.name
     user.provider = auth.provider
     user.uid      = auth.uid

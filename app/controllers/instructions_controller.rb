@@ -3,7 +3,6 @@ class InstructionsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :delete]
   before_action :set_auth
   before_action :find_instruction, only: [:edit, :update, :show, :delete]
-  autocomplete  :tag, :name, display_value: :camelize
 
   def index
     if params[:tag]

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dtbx6e5eb
+  api_key: 'your secret key'
+  api_secret: your secret key
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dtbx6e5eb
+  api_key: 'your secret key'
+  api_secret: your secret key
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dtbx6e5eb
+  api_key: 'your secret key'
+  api_secret: your secret key
+  enhance_image_tag: true
+  static_image_support: false
