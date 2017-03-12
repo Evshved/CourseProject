@@ -1,11 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable,
   :trackable, :validatable, :omniauthable
   devise :omniauthable, :omniauth_providers => [:twitter, :facebook, :vkontakte]
 
   has_many :instructions, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
@@ -19,7 +18,6 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    # binding.pry
     authorization = auth_check(auth)
     if authorization.user.blank?
       user = check_existing(auth)
