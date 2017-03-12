@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'instructions#index', as: "tag"
 
-
   root to: 'instructions#index'
   resources :instructions
   resources :steps
