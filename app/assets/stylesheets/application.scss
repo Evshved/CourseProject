@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "../tags";
 @import "dropzone";
+/*= require jquery-ui */
 
 body {
   background-color: #fafafa;
@@ -112,4 +113,37 @@ body {
 }
 .form-facebook {
   display: inline;
+}
+
+.image-settings {
+
+    height: 100%;
+    width: 100%;
+
+}
+.blog-main{
+  .circle {
+    position: absolute;
+    top: -13px;
+    right: 5px;
+    width: 25px;
+    height: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: black;
+  }
+  .delete-icon {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    .glyphicon {color:white !important;}
+  }
+}
+#sortable {
+  list-style-type: none; margin: 0; padding: 0; width: 450px;
+}
+#sortable li {
+ margin: 3px 3px 3px 0;
+ padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center;
 }

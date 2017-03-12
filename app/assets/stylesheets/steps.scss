@@ -1,3 +1,78 @@
-// Place all the styles related to the Steps controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$border-color: #424242;
+$bg-color: #fff;
+
+.basic-form {
+  border: 3px dashed $border-color;
+  background-color: $bg-color;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.preview {
+  position: relative;
+
+  img {
+    margin: 0;
+  }
+
+  .delete_by_token {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    text-decoration: none;
+    line-height: 9px;
+    font-size: 40px;
+  }
+}
+
+.delete-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 267px;
+  -webkit-text-stroke: 2px black;
+  color: #ffffff;
+  text-decoration: none;
+  line-height: 25px;
+  font-size: 50px;
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+    color: black;
+    -webkit-text-stroke: 2px #ffffff;
+  }
+}
+
+.gallery {
+  margin-top: 15px;
+}
+
+.step {
+  height: 190px;
+  margin-bottom: 30px;
+
+  .img-border {
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    padding: 4px;
+    img{
+      border-radius: 1px;
+    }
+  }
+}
+
+.new_step {
+  .dz-message {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 60px 0;
+    text-align: center;
+ }
+}
+
+.dz-drag-hover {
+  border-style: solid;
+}

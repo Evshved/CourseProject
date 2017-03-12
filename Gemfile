@@ -10,7 +10,7 @@ ruby '2.3.1'
 gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
-
+gem 'searchkick'
 gem 'rails',  '5.0.1'# Use postgresql as the database for Active Record
 gem 'mysql2', '0.4.2'
 gem 'puma',   '3.0'
@@ -25,8 +25,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit'
