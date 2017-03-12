@@ -3,10 +3,11 @@
     .text-center
       %button.btn.btn-primary.btn-lg{"data-target" => "#mynewstep", "data-toggle" => "modal", :type => "button"}
         New step
+  = link_to 'Back', 'javascript:history.go(-1);'
   #container_steps.row
-    = render 'steps'
+    = render @steps
 
-  = form_for(@step, remote: true) do |f|
+  = form_for(@step, remote: true, class: 'new_photo needsclick dz-clickable') do |f|
     #mynewstep.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
       .modal-dialog
         .modal-content
@@ -17,10 +18,16 @@
           .modal-body
             .field
               = f.label :description
-
               = f.text_area :description, class: "form-control step_title"
+              #direct_upload.basic-form.dz-clickable.needsclick
+                .dz-message.needsclick.dz-clickable
+                  Drop files here or click to upload.
+                = hidden_field_tag :direct, params[:direct]
+
           .modal-footer
             %button#mynewstepclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
             = submit_tag "Create", class: "btn btn-primary"
 
-= paginate @steps
+
+
+
