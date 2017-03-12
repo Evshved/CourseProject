@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302112838) do
+ActiveRecord::Schema.define(version: 20170310214512) do
 
   create_table "authorizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "provider"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20170302112838) do
     t.integer  "step_id"
   end
 
+  create_table "image_in_steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  end
+
   create_table "instructions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.datetime "created_at",   null: false
@@ -39,13 +42,21 @@ ActiveRecord::Schema.define(version: 20170302112838) do
     t.string   "youtube_link"
   end
 
+  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.boolean  "has_connection"
+  end
+
   create_table "steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "img"
     t.string   "description"
     t.integer  "order"
     t.integer  "instruction_id", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "image"
   end
 
   create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
