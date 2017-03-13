@@ -65,7 +65,8 @@ class StepsController < ApplicationController
     instruction_id = parsing_http(request)
     @step = Step.new(instruction_id: instruction_id,
                       description: parsing_description(params),
-                      image: choose_photo)
+                      image: choose_photo,
+                      user_id: current_user.id)
     respond_to do |format|
       if @step.save
         format.html { redirect_to @step }
@@ -130,11 +131,11 @@ class StepsController < ApplicationController
   end
 
   def step_params
-    params.require(:step).permit(:description, :image, :order)
     hash_of_params = {}
     hash_of_params[:description] = parsing_description(params)
     hash_of_params[:image] = Photo.where(user_id: current_user.id,
                                 has_connection: false).last.image
+    hash_of_params[:user_id] = current_user.id
     hash_of_params
   end
 end
