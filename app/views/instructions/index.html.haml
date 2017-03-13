@@ -1,9 +1,10 @@
 .container
-  .row
-    .text-center
-      .button-create
-        %button.btn.btn-primary.btn-lg{"data-target" => "#mynewinstruction", "data-toggle" => "modal", :type => "button"}
-          = t('instructions.index.create-instruction')
+  - if user_signed_in?
+    .row
+      .text-center
+        .button-create
+          %button.btn.btn-primary.btn-lg{"data-target" => "#mynewinstruction", "data-toggle" => "modal", :type => "button"}
+            = t('instructions.index.create-instruction')
   #container_instructions.row
     = render @instructions
 

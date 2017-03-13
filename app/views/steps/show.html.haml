@@ -11,10 +11,11 @@
           =link_to "view all #{@step.comments.count} comments", step_comments_path(@step), remote: true, class: 'more-comments', id: "more_comments_#{@step.id}", data: {step_id: "#{@step.id}", type: "html", value: "#{@step.comments.count}"}
 .comment-form.col-sm-11
   =form_for([@step, @step.comments.build], remote: true) do |f|
-    =f.text_field :content, placeholder:  t('steps.show.comment'),
-                             class: "comment_content",
-                             id: "comment_content_#{@step.id}",
-                             data: { step_id: "#{@step.id}",
-                             value: "#{@step.comments.count}" }
-    =f.submit 'New Comment', class: 'comment-submit-button'
+    - if user_signed_in?
+      =f.text_field :content, placeholder:  t('steps.show.comment'),
+                               class: "comment_content",
+                               id: "comment_content_#{@step.id}",
+                               data: { step_id: "#{@step.id}",
+                               value: "#{@step.comments.count}" }
+      =f.submit 'New Comment', class: 'comment-submit-button'
 

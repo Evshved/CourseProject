@@ -14,28 +14,31 @@
           .image-settings
             = link_to step do
               %img{src: "http://res.cloudinary.com/dtbx6e5eb/#{step.image}", :height => "100%", :width => "100%"  }
-      .circle
-      .delete-icon
-        = link_to '', step, method: :delete, class: "glyphicon glyphicon-remove", remote: true
-  = form_for(step, :method => :put, remote: true) do |f|
-    .modal.fade{"aria-labelledby" => "myModalLabel", :id => "myupdatestep_#{step.id}", :role => "dialog", :tabindex => "-1"}
-      .modal-dialog
-        .modal-content
-          .modal-header
-            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :tupe => "button"}
-              %span{"aria-hidden" => "true"} ×
-            %h4#myModalLabel.modal-title
-              = t('steps.step.edit-step')
+      - if user_signed_in?
+        - if current_user.id == step.user_id
+          .circle
+          .delete-icon
+            = link_to '', step, method: :delete, class: "glyphicon glyphicon-remove", remote: true
+  - if user_signed_in?
+    - if current_user.id == step.user_id
+      = form_for(step, :method => :put, remote: true) do |f|
+        .modal.fade{"aria-labelledby" => "myModalLabel", :id => "myupdatestep_#{step.id}", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :tupe => "button"}
+                  %span{"aria-hidden" => "true"} ×
+                %h4#myModalLabel.modal-title
+                  = t('steps.step.edit-step')
 
-          .modal-body
-            .field
-              = t('steps.step.description')
-              %br/
-              = f.text_area :description, class: "form-control"
-            #direct_upload.basic-form.dz-clickable.needsclick
-              .dz-message.needsclick.dz-clickable
-                = t('steps.index.dropzone')
-              = hidden_field_tag :direct, params[:direct]
-
-          .modal-footer
-            = submit_tag t('steps.step.update-modal'), class: "btn btn-primary"
+              .modal-body
+                .field
+                  = t('steps.step.description')
+                  %br/
+                  = f.text_area :description, class: "form-control"
+                #direct_upload.basic-form.dz-clickable.needsclick
+                  .dz-message.needsclick.dz-clickable
+                    = t('steps.index.dropzone')
+                  = hidden_field_tag :direct, params[:direct]
+              .modal-footer
+                = submit_tag t('steps.step.update-modal'), class: "btn btn-primary"

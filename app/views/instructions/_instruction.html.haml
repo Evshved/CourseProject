@@ -5,13 +5,17 @@
       %p= link_to t('instructions.instruction.youtube-link'), instruction.youtube_link
       = t('instructions.instruction.tags-listing')
       %h4= raw tag_links(instruction.all_tags)
-      .circle
-      .delete-icon
-        = link_to '', instruction, method: :delete, class: "glyphicon glyphicon-remove", remote: true
+      - if user_signed_in?
+        - if current_user.id == instruction.user_id
+          .circle
+          .delete-icon
+            = link_to '', instruction, method: :delete, class: "glyphicon glyphicon-remove", remote: true
     .btn-group{"aria-label" => "...", :role => "group"}
-      %button.btn.btn-warning{:"data-toggle" => "modal", :type => "button",
-      :"data-target" => "#myupdateinstruction_#{instruction.id}"}
-        = t('instructions.instruction.edit')
+      - if user_signed_in?
+        - if current_user.id == instruction.user_id
+          %button.btn.btn-warning{:"data-toggle" => "modal", :type => "button",
+          :"data-target" => "#myupdateinstruction_#{instruction.id}"}
+            = t('instructions.instruction.edit')
     = link_to t('instructions.instruction.show'), instruction, class: "btn btn-default"
   = form_for(instruction, :method => :put, remote: true) do |f|
     .modal.fade{"aria-labelledby" => "myModalLabel", :id => "myupdateinstruction_#{instruction.id}", :role => "dialog", :tabindex => "-1"}

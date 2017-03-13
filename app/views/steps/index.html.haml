@@ -1,8 +1,10 @@
 .container
-  .row
-    .text-center
-      %button.btn.btn-primary.btn-lg{"data-target" => "#mynewstep", "data-toggle" => "modal", :type => "button"}
-        = t('steps.index.new-step')
+  - if user_signed_in?
+    - if current_user.id == @step.user_id
+      .row
+        .text-center
+          %button.btn.btn-primary.btn-lg{"data-target" => "#mynewstep", "data-toggle" => "modal", :type => "button"}
+            = t('steps.index.new-step')
 
   .back-up
     %a.btn.btn-warning{:href => "javascript:history.go(-1);", :role => "button"}
