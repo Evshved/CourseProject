@@ -1,15 +1,10 @@
 $(document).ready(() => {
-  var myDropzone = '';
-  var index = '';
-  var image = '';
-
 
   let cloudinarySettings = {
     url: "https://api.cloudinary.com/v1_1/dtbx6e5eb/image/upload",
     api_key: "564565819495146",
     upload_preset: "zcxhugnt"
   };
-
 
   var myDropzone = new Dropzone(document.getElementById('direct_upload'), {
     uploadMultiple: false,
@@ -56,14 +51,11 @@ $(document).ready(() => {
 
   function clearImageData(){
     $('input[name="photo[image]"]').remove();
-    $(".basic-form").hide("fast");
   }
 
   $(".btn.btn-primary").on('click',function(){
-    window.location.href=window.location.href;
   })
 
-// $(".image-settings").hide().fast;
 
   $(document).on('click', 'a.delete-btn', function(e){
     if(confirm("You sure?")){
