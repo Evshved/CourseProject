@@ -1,4 +1,4 @@
-.col-md-4.blog-main.box.text-center{:id => "instruction_#{instruction.id}"}
+.col-xs-4.col-sm-4.col-md-4.blog-main.box.text-center{:id => "instruction_#{instruction.id}"}
   .panel.panel-info
     .panel-heading
       %h3.panel-title= instruction.title
@@ -17,6 +17,7 @@
           :"data-target" => "#myupdateinstruction_#{instruction.id}"}
             = t('instructions.instruction.edit')
     = link_to t('instructions.instruction.show'), instruction, class: "btn btn-default"
+
   = form_for(instruction, :method => :put, remote: true) do |f|
     .modal.fade{"aria-labelledby" => "myModalLabel", :id => "myupdateinstruction_#{instruction.id}", :role => "dialog", :tabindex => "-1"}
       .modal-dialog
