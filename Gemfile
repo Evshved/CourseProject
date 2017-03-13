@@ -11,24 +11,21 @@ gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
 gem 'searchkick'
-gem 'rails',  '5.0.1'# Use postgresql as the database for Active Record
+gem 'rails',  '5.0.1'
 gem 'mysql2', '0.4.2'
 gem 'puma',   '3.0'
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit'
 gem 'rails-i18n'
+gem 'devise-i18n'
 gem 'carrierwave'
 gem 'cloudinary'
 
