@@ -1,4 +1,4 @@
-%a.btn.btn-warning{:href => "javascript:history.go(-1);", :role => "button"}
+%a.btn.btn-warning{:href => "/steps?instruction_id=#{@step.instruction_id}", :role => "button"}
   =t('steps.index.back-up')
 
 = render 'step', step: @step

@@ -1,15 +1,16 @@
 .stepping-maps
   - if @can_edit
-    .col-md-12.blog-main.box.text-center{:id => "step_#{step.id}"}
-      %h3.panel-title= step.description
+    .col-xs-4.col-sm-4.col-md-12.blog-main.box.text-center{:id => "step_#{step.id}"}
+      %h3.panel-title
+        = raw(step.description)
       .edit{:"data-toggle" => "modal", :type => "link", :"data-target" => "#myupdatestep_#{step.id}"}
         .panel-heading
           .image-settings
             %img{src: "http://res.cloudinary.com/dtbx6e5eb/#{step.image}",:height => "600em", :width => "600em" }
   - else
-    .col-md-3.blog-main.box.text-center{:id => "step_#{step.id}"}
+    .container.col-sm-11.col-md-3.blog-main.box.text-center{:id => "step_#{step.id}"}
       .panel.panel-info
-        %h3.panel-title= step.description
+        %h3.panel-title= raw(step.description)
         .panel-heading
           .image-settings
             = link_to step do
@@ -30,12 +31,11 @@
                   %span{"aria-hidden" => "true"} ×
                 %h4#myModalLabel.modal-title
                   = t('steps.step.edit-step')
-
               .modal-body
                 .field
                   = t('steps.step.description')
+                  = f.cktext_area :description, :class => "form-control"
                   %br/
-                  = f.text_area :description, class: "form-control"
                 #direct_upload.basic-form.dz-clickable.needsclick
                   .dz-message.needsclick.dz-clickable
                     = t('steps.index.dropzone')

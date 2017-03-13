@@ -1,19 +1,14 @@
 .container
   - if user_signed_in?
-    - if current_user.id == @step.user_id
-      .row
-        .text-center
-          %button.btn.btn-primary.btn-lg{"data-target" => "#mynewstep", "data-toggle" => "modal", :type => "button"}
-            = t('steps.index.new-step')
-
+    .row
+      .text-center
+        %button.btn.btn-primary.btn-lg{"data-target" => "#mynewstep", "data-toggle" => "modal", :type => "button"}
+          = t('steps.index.new-step')
   .back-up
-    %a.btn.btn-warning{:href => "javascript:history.go(-1);", :role => "button"}
+    %a.btn.btn-warning{:href => "/instructions", :role => "button"}
       =t('steps.index.back-up')
-
-
   #container_steps.row
     = render @steps
-
   = form_for(@step, remote: true, class: 'new_photo needsclick dz-clickable') do |f|
     #mynewstep.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
       .modal-dialog
@@ -26,12 +21,11 @@
           .modal-body
             .field
               = f.label t('steps.index.description')
-              = f.text_area :description, class: "form-control step_title"
+              = f.cktext_area :description, :class => "form-control"
               #direct_upload.basic-form.dz-clickable.needsclick
                 .dz-message.needsclick.dz-clickable
                   = t('steps.index.dropzone')
                 = hidden_field_tag :direct, params[:direct]
-
           .modal-footer
             %button#mynewstepclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"}
               =t('instructions.index.close-modal')
