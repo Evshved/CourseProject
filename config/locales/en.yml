@@ -27,12 +27,12 @@ en:
       new-step: 'Create step'
       back-up:  'Back'
       description: 'Description'
-      dropzone: 'Drag and drop files here or selected files.'
+      dropzone: 'Drag and drop file here or selected files.'
     step:
       edit-step: 'Edit step'
       back-up:  'Back'
       description: 'Description'
-      dropzone: 'Drag and drop files here or selected files.'
+      dropzone: 'Drag and drop file here or selected files.'
       update-modal: 'Update'
       create-step: 'Create'
     show:
