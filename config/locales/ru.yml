@@ -1,0 +1,39 @@
+ru:
+  layouts:
+    application:
+      brand: 'Инструктатор'
+      sign-out: 'Выйти'
+      social-login: 'Вход через соц.сети'
+  instructions:
+    index:
+      title: 'Инструкция'
+      title-name: 'Заголовок'
+      youtube-link: 'Ссылка на Youtube'
+      tags-listing: 'Тэги для этой инструкции'
+      tags-help: 'Теги вводятся через запятую'
+      create-instruction: 'Создать инструкцию'
+      close-modal: 'Закрыть'
+    tags:
+      tags-cloud: 'Облако тэгов:'
+    instruction:
+      edit: 'Изменить'
+      title-name: 'Заголовок'
+      youtube-link: 'Ссылка на Youtube'
+      tags-listing: 'Тэги для этой инструкции'
+      tags-help: 'Теги вводятся через запятую'
+      show: 'Открыть'
+  steps:
+    index:
+      new-step: 'Создать шаг'
+      back-up:  'Вернуться назад'
+      description: 'Описание шага'
+      dropzone: 'Перетащите сюда файлы или нажмите, чтобы загрузить.'
+    step:
+      edit-step: 'Изменение шага'
+      back-up:  'Вернуться назад'
+      description: 'Описание шага'
+      dropzone: 'Перетащите сюда файлы или нажмите, чтобы загрузить.'
+      update-modal: 'Обновить'
+      create-step: 'Создать'
+    show:
+      comment: 'Добавить комментарий'

@@ -2,8 +2,13 @@
   .row
     .text-center
       %button.btn.btn-primary.btn-lg{"data-target" => "#mynewstep", "data-toggle" => "modal", :type => "button"}
-        New step
-  = link_to 'Back', 'javascript:history.go(-1);'
+        = t('steps.index.new-step')
+
+  .back-up
+    %a.btn.btn-warning{:href => "javascript:history.go(-1);", :role => "button"}
+      =t('steps.index.back-up')
+
+
   #container_steps.row
     = render @steps
 
@@ -14,19 +19,21 @@
           .modal-header
             %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
               %span{"aria-hidden" => "true"}
-            %h4#myModalLabel.modal-title step
+            %h4#myModalLabel.modal-title
+              =t('steps.index.new-step')
           .modal-body
             .field
-              = f.label :description
+              = f.label t('steps.index.description')
               = f.text_area :description, class: "form-control step_title"
               #direct_upload.basic-form.dz-clickable.needsclick
                 .dz-message.needsclick.dz-clickable
-                  Drop files here or click to upload.
+                  = t('steps.index.dropzone')
                 = hidden_field_tag :direct, params[:direct]
 
           .modal-footer
-            %button#mynewstepclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-            = submit_tag "Create", class: "btn btn-primary"
+            %button#mynewstepclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"}
+              =t('instructions.index.close-modal')
+            = submit_tag t('steps.index.new-step'), class: "btn btn-primary"
 
 
 

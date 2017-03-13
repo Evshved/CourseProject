@@ -1,8 +1,9 @@
 .container
   .row
     .text-center
-      %button.btn.btn-primary.btn-lg{"data-target" => "#mynewinstruction", "data-toggle" => "modal", :type => "button"}
-        New Instruction
+      .button-create
+        %button.btn.btn-primary.btn-lg{"data-target" => "#mynewinstruction", "data-toggle" => "modal", :type => "button"}
+          = t('instructions.index.create-instruction')
   #container_instructions.row
     = render @instructions
 
@@ -13,19 +14,22 @@
           .modal-header
             %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
               %span{"aria-hidden" => "true"}
-            %h4#myModalLabel.modal-title Instruction
+            %h4#myModalLabel.modal-title
+              = t('instructions.index.title')
           .modal-body
             .field
-              = f.label :title
+              = f.label t('instructions.index.title-name')
               = f.text_area :title, class: "form-control instruction_title"
-              = f.label :youtube_link
+              = f.label t('instructions.index.youtube-link')
               = f.text_area :youtube_link, class: "form-control instruction_body"
-              =f.label :all_tags
-              =f.text_area :all_tags, class: "form-control instruction_all_tags"
+              =f.label t('instructions.index.tags-listing')
+              =f.text_area :all_tags, class: "form-control instruction_all_tags", placeholder: t('instructions.index.tags-help')
           .modal-footer
-            %button#mynewinstructionclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-            = submit_tag "Create", class: "btn btn-primary"
+            %button#mynewinstructionclose.btn.btn-default{"data-dismiss" => "modal", :type => "button"}
+              = t('instructions.index.close-modal')
+            = submit_tag t('instructions.index.create-instruction'), class: "btn btn-primary"
 .tags-cloud.glassy-bg
   = render partial: "tags"
 .paginating
   = paginate @instructions
+

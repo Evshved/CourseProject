@@ -28,7 +28,7 @@ gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit'
-
+gem 'rails-i18n'
 gem 'carrierwave'
 gem 'cloudinary'
 

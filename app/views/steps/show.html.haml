@@ -1,5 +1,5 @@
-= link_to 'Back', 'javascript:history.go(-1);'
-
+%a.btn.btn-warning{:href => "javascript:history.go(-1);", :role => "button"}
+  =t('steps.index.back-up')
 
 = render 'step', step: @step
 .container.col-sm-11
@@ -11,7 +11,7 @@
           =link_to "view all #{@step.comments.count} comments", step_comments_path(@step), remote: true, class: 'more-comments', id: "more_comments_#{@step.id}", data: {step_id: "#{@step.id}", type: "html", value: "#{@step.comments.count}"}
 .comment-form.col-sm-11
   =form_for([@step, @step.comments.build], remote: true) do |f|
-    =f.text_field :content, placeholder: 'Add a comment...',
+    =f.text_field :content, placeholder:  t('steps.show.comment'),
                              class: "comment_content",
                              id: "comment_content_#{@step.id}",
                              data: { step_id: "#{@step.id}",

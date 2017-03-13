@@ -2,8 +2,8 @@
   .panel.panel-info
     .panel-heading
       %h3.panel-title= instruction.title
-      %p= link_to 'Youtube link', instruction.youtube_link
-      Tags
+      %p= link_to t('instructions.instruction.youtube-link'), instruction.youtube_link
+      = t('instructions.instruction.tags-listing')
       %h4= raw tag_links(instruction.all_tags)
       .circle
       .delete-icon
@@ -11,8 +11,8 @@
     .btn-group{"aria-label" => "...", :role => "group"}
       %button.btn.btn-warning{:"data-toggle" => "modal", :type => "button",
       :"data-target" => "#myupdateinstruction_#{instruction.id}"}
-        Edit
-    = link_to 'Show', instruction, class: "btn btn-default"
+        = t('instructions.instruction.edit')
+    = link_to t('instructions.instruction.show'), instruction, class: "btn btn-default"
   = form_for(instruction, :method => :put, remote: true) do |f|
     .modal.fade{"aria-labelledby" => "myModalLabel", :id => "myupdateinstruction_#{instruction.id}", :role => "dialog", :tabindex => "-1"}
       .modal-dialog
@@ -20,20 +20,16 @@
           .modal-header
             %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :tupe => "button"}
               %span{"aria-hidden" => "true"} ×
-            %h4#myModalLabel.modal-title Edit
+            %h4#myModalLabel.modal-title
+              = t('instructions.instruction.edit')
           .modal-body
             .field
-              = f.label :title
-              %br
-              = f.text_area :title, class: "form-control"
-            .field
-              = f.label :youtube_link
-              %br
-              = f.text_area :youtube_link, class: "form-control"
-            .field
-              = f.label :all_tags
-              %br
-              = f.text_area :all_tags, class: "form-control"
+              = f.label t('instructions.instruction.title-name')
+              = f.text_area :title, class: "form-control instruction_title"
+              = f.label t('instructions.instruction.youtube-link')
+              = f.text_area :youtube_link, class: "form-control instruction_body"
+              =f.label t('instructions.instruction.tags-listing')
+              =f.text_area :all_tags, class: "form-control instruction_all_tags", placeholder: t('instructions.instruction.tags-help')
           .modal-footer
             %button.btn.btn-default{"data-dismiss" => "modal", :id => "myupdatebutton_#{instruction.id}", :type => "button"} Close
             = submit_tag "Update", class: "btn btn-primary"

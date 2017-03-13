@@ -5,7 +5,7 @@
       .edit{:"data-toggle" => "modal", :type => "link", :"data-target" => "#myupdatestep_#{step.id}"}
         .panel-heading
           .image-settings
-            %img{src: "http://res.cloudinary.com/dtbx6e5eb/#{step.image}",:height => "100%", :width => "100%" }
+            %img{src: "http://res.cloudinary.com/dtbx6e5eb/#{step.image}",:height => "600em", :width => "600em" }
   - else
     .col-md-3.blog-main.box.text-center{:id => "step_#{step.id}"}
       .panel.panel-info
@@ -24,17 +24,18 @@
           .modal-header
             %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :tupe => "button"}
               %span{"aria-hidden" => "true"} ×
-            %h4#myModalLabel.modal-title Edit
+            %h4#myModalLabel.modal-title
+              = t('steps.step.edit-step')
+
           .modal-body
             .field
-              = f.label :description
+              = t('steps.step.description')
               %br/
               = f.text_area :description, class: "form-control"
             #direct_upload.basic-form.dz-clickable.needsclick
               .dz-message.needsclick.dz-clickable
-                Drop files here or click to upload.
+                = t('steps.index.dropzone')
               = hidden_field_tag :direct, params[:direct]
 
           .modal-footer
-            %button.btn.btn-default{"data-dismiss" => "modal", :id => "myupdatebutton_#{step.id}", :type => "button"} Close
-            = submit_tag "Update", class: "btn btn-primary"
+            = submit_tag t('steps.step.update-modal'), class: "btn btn-primary"
