@@ -37,8 +37,8 @@ gem 'therubyracer'
 gem 'devise'
 gem 'koala'
 gem 'rails4-autocomplete'
-
 gem 'kaminari'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'byebug', platform: :mri

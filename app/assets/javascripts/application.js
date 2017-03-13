@@ -16,4 +16,5 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require dropzone
+//= require ckeditor/init
 //= require_tree .
