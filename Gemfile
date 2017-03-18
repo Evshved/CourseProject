@@ -8,7 +8,6 @@ end
 ruby '2.3.1'
 
 gem 'acts-as-taggable-on'
-gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
 gem 'searchkick'
 gem 'rails',  '5.0.1'
@@ -39,6 +38,10 @@ gem 'koala'
 gem 'rails4-autocomplete'
 gem 'kaminari'
 gem 'ckeditor'
+
+gem 'rake'
+gem 'rspec'
+gem 'kramdown'
 
 group :development, :test do
   gem 'byebug', platform: :mri
